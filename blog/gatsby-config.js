@@ -20,6 +20,13 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `3pyo4ky9sari`,
+        accessToken: `QotpP9ym0hNS-flPG3TmIgbGhrE__Ho-2cW9WG8bRHU`
+      }
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
