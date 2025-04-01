@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-type'
+import propTypes from 'prop-types'
 import { BaseContainer } from '../BaseContainer'
 
 export const List = ({ children, ...rest }) => (
