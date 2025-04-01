@@ -4,15 +4,15 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { List, ListItem } from '../components/List'
 import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Seo title="Home" />
-    <ul className={styles.list}>
+    <List width={[1, 2/3, 7/8]} p={2}>
       {
         data.allContentfulBlogPost.edges.map(edge => (
-          <li key={edge.node.id}>
+          <ListItem p={3} key={edge.node.id}>
             <Link to={edge.node.slug}>{edge.node.title}</Link>
             <div>
               <GatsbyImage
@@ -22,11 +22,10 @@ const IndexPage = ({ data }) => (
             <div>
               {edge.node.body.childMarkdownRemark.excerpt}
             </div>
-          </li>
-        ))
-        
+          </ListItem>
+        )) 
       }
-    </ul>
+    </List>
   </Layout>
 )
 
@@ -35,9 +34,11 @@ const IndexPage = ({ data }) => (
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
+
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
 
 export const query = graphql`
   {
