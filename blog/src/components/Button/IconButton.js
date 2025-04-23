@@ -8,7 +8,9 @@ const StyledButton = styled(BaseButton)`
 `
 
 export const IconButton = styled(({ icon, ...rest}) => {
-    let clone = React.cloneElement(icon, rest)
+    const clone = React.isValidElement(icon)
+    ? React.cloneElement(icon, rest)
+    : null;
     return <StyledButton {...rest} className={rest.className}>{clone}</StyledButton>
 })`
   // We could add styles here, but it is not necessary
